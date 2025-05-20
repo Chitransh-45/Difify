@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 import PrelineScript from "@/components/PrelineScript";
 
 const geistSans = Geist({
@@ -26,7 +27,16 @@ export default function RootLayout({ children }) {
       >
         <PrelineScript />
         <Toaster />
-        {children}
+        <div className="relative min-h-screen font-sans text-gray-800 bg-gradient-to-br from-indigo-200 via-purple-100 to-blue-100 p-6 overflow-hidden">
+          {/* Decorative blurred shapes */}
+          <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-purple-300 opacity-30 rounded-full filter blur-3xl z-0"></div>
+          <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-blue-200 opacity-30 rounded-full filter blur-3xl z-0"></div>
+          <div className="absolute top-1/2 left-1/2 w-[200px] h-[200px] bg-pink-200 opacity-20 rounded-full filter blur-2xl z-0 -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="relative z-10">
+            <Navbar />
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
